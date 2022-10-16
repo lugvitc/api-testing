@@ -2,38 +2,40 @@ const id = (id) => document.getElementById(id);
 // const tags = tag => document.getElementsByTagName(tag);
 
 let state = {
-  url: "",
-  method: "GET",
-  headers: { mode: "no-cors" },
+  url: '',
+  method: 'GET',
+  headers: { mode: 'no-cors' },
   parameters: {},
 };
 
 [
-  { name: "url", type: "text" },
-  { name: "method", type: "text" },
+  { name: 'url', type: 'text' },
+  { name: 'method', type: 'text' },
 ].forEach(({ name, type }) =>
-  id(name).addEventListener("change", (e) => {
+  id(name).addEventListener('change', (e) => {
     state[name] = e.target.value;
   })
 );
 
-// id("add-header").addEventListener("click", (e) => {
+// Bug Fixing
+
+// id('add-header').addEventListener('click', (e) => {
 //   e.preventDefault();
-//   state.headers[id("header-name").value] = id("header-value").value;
-//   id("header-name").value = "";
-//   id("header-value").value = "";
+//   state.headers[id('header-name').value] = id('header-value').value;
+//   id('header-name').value = '';
+//   id('header-value').value = '';
 //   console.log(state);
 // });
 
-// id("add-parameter").addEventListener("click", (e) => {
+// id('add-parameter').addEventListener('click', (e) => {
 //   e.preventDefault();
-//   state.parameters[id("parameter-name").value] = id("parameter-value").value;
-//     id("parameter-name").value = "";
-//     id("parameter-value").value = "";
+//   state.parameters[id('parameter-name').value] = id('parameter-value').value;
+//   id('parameter-name').value = '';
+//   id('parameter-value').value = '';
 //   console.log(state);
 // });
 
-id("request-form").addEventListener("submit", async (e) => {
+id('request-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   const res = await fetch(state.url, {
     method: state.method,
@@ -42,19 +44,21 @@ id("request-form").addEventListener("submit", async (e) => {
   const status = res.status;
   const text = await res.text();
 
-  const response = (id("response").innerHTML = `Code: ${status}<br />${text}`);
+  const response = (id('response').innerHTML = `Code: ${status}<br />${text}`);
 });
 
 // https://reqres.in/api/users
 
+// -----------------------------------------------
+
 // Adding Multiple Headers and Multiple Parameters
 
 document
-  .getElementById("add-parameter")
-  .addEventListener("click", function (e) {
+  .getElementById('add-parameter')
+  .addEventListener('click', function (e) {
     e.preventDefault();
-    let arr = [...document.getElementById("parameters").querySelectorAll("tr")];
-    let el = document.getElementById("parameters").querySelector("tr");
+    let arr = [...document.getElementById('parameters').querySelectorAll('tr')];
+    let el = document.getElementById('parameters').querySelector('tr');
     let param = `
         <tr id=${arr.length + 1}>
         <td><input type="text" id="parameter-name" /></td>
@@ -64,12 +68,12 @@ document
       ></td>
         </tr>`;
     document
-      .getElementById("parameters")
-      .insertAdjacentHTML("beforeend", param);
+      .getElementById('parameters')
+      .insertAdjacentHTML('beforeend', param);
   });
 
-document.getElementById("add-header").addEventListener("click", function () {
-  let arr = [...document.getElementById("headers").querySelectorAll("tr")];
+document.getElementById('add-header').addEventListener('click', function () {
+  let arr = [...document.getElementById('headers').querySelectorAll('tr')];
   let header = `
     <tr id=${arr.length + 1} >
         <td><input type="text" id="header-name" /></td>
@@ -80,15 +84,17 @@ document.getElementById("add-header").addEventListener("click", function () {
     </tr>
     `;
 
-  document.getElementById("headers").insertAdjacentHTML("beforeend", header);
+  document.getElementById('headers').insertAdjacentHTML('beforeend', header);
 });
+
+// -----------------------------------------------------------
 
 // Added deleting parameter and deleting header feature
 
 let remove = function (e, str) {
-  if (!e.target.classList.contains("cancel")) return;
+  if (!e.target.classList.contains('cancel')) return;
 
-  let id = +e.target.closest("tr").id;
+  let id = +e.target.closest('tr').id;
   let names = [
     ...document.getElementById(`${str}s`).querySelectorAll(`#${str}-name`),
   ].map((mov) => mov.value);
@@ -101,28 +107,28 @@ let remove = function (e, str) {
   values = values.filter((_, i) => i + 1 !== id);
 
   let arr = [
-    ...document.getElementById(`${str}s`).querySelectorAll("tr"),
+    ...document.getElementById(`${str}s`).querySelectorAll('tr'),
   ].filter((mov) => Number(mov.id) != id);
 
   arr = arr.map((mov, i) => {
-    mov.id = i + 1 + "";
+    mov.id = i + 1 + '';
 
     mov.querySelector(`#${str}-value`).value = values[i];
     mov.querySelector(`#${str}-name`).value = names[i];
     return mov;
   });
 
-  document.getElementById(`${str}s`).innerHTML = "";
+  document.getElementById(`${str}s`).innerHTML = '';
 
   arr.forEach((mov) => {
-    document.getElementById(`${str}s`).insertAdjacentElement("beforeend", mov);
+    document.getElementById(`${str}s`).insertAdjacentElement('beforeend', mov);
   });
 };
 
-document.getElementById("parameters").addEventListener("click", function (e) {
-  remove(e, "parameter");
+document.getElementById('parameters').addEventListener('click', function (e) {
+  remove(e, 'parameter');
 });
 
-document.getElementById("headers").addEventListener("click", function (e) {
-  remove(e, "header");
+document.getElementById('headers').addEventListener('click', function (e) {
+  remove(e, 'header');
 });
