@@ -1,74 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>API Testing | Linux Club, VIT Chennai</title>
-        <script defer src="index.js"></script>
-    </head>
-    <body>
-        <header><h1>API Testing</h1></header>
-        <main>
-            <h2>Request</h2>
-            <form id="request-form">
-                <select id="method">
-                    <option value="GET">GET</option>
-                    <option value="HEAD">HEAD</option>
-                    <option value="POST">POST</option>
-                    <option value="PUT">PUT</option>
-                    <option value="DELETE">DELETE</option>
-                    <option value="PATCH">PATCH</option>
-                    <option value="CONNECT">CONNECT</option>
-                    <option value="OPTIONS">OPTIONS</option>
-                </select>
-                <input id="url" /><br />
-                <h3>Parameters</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Key</th>
-                            <th>Value</th>
-                        </tr>
-                    </thead>
-                    <tbody id="parameters">
-                        <tr>
-                            <td><input type="text" id="parameter-name" /></td>
-                            <td><input type="text" id="parameter-value" /></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button id="add-parameter">Add parameter</button>
-                <br />
-                <h3>Headers</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Key</th>
-                            <th>Value</th>
-                        </tr>
-                    </thead>
-                    <tbody id="headers">
-                        <tr>
-                            <td><input type="text" id="header-name" /></td>
-                            <td><input type="text" id="header-value" /></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button id="add-header">Add header</button>
-                <br />
-                <br />
-                <button>Send</button>
-            </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Testing | Linux Club, VIT Chennai</title>
+    <script defer src="index.js"></script>
+  </head>
+  <body>
+    <header><h1>API Testing</h1></header>
+    <main>
+      <h2>Request</h2>
+      <div id="request-form">
+        <select id="method">
+          <option value="GET">GET</option>
+          <option value="HEAD">HEAD</option>
+          <option value="POST">POST</option>
+          <option value="PUT">PUT</option>
+          <option value="DELETE">DELETE</option>
+          <option value="PATCH">PATCH</option>
+          <option value="CONNECT">CONNECT</option>
+          <option value="OPTIONS">OPTIONS</option>
+        </select>
+        <input id="url" /><br />
+        <h3>Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody id="parameters">
+            <tr id="1">
+              <td><input type="text" id="parameter-name" /></td>
+              <td>
+                <input type="text" id="parameter-value" />&nbsp;<span
+                  class="cancel"
+                  >✖</span
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button id="add-parameter">Add parameter</button>
+        <br />
+        <h3>Headers</h3>
+        <table>
+          <thead>
+            <tr id="1">
+              <th>Key</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody id="headers">
+            <tr id="1">
+              <td><input type="text" id="header-name" /></td>
+              <td>
+                <input type="text" id="header-value" />&nbsp;<span
+                  class="cancel"
+                  >✖</span
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button id="add-header">Add header</button>
+        <br />
+        <br />
+        <button>Send</button>
+      </div>
 
-            <h2>Response</h2>
-            <div id="response"></div>
-        </main>
-        <footer>
-            Made with ❤️ by
-            <a href="https://lugvitc.github.io" target="_blank" rel="noreferrer"
-                >LUGVITC</a
-            >
-        </footer>
-    </body>
+      <h2>Response</h2>
+      <div id="response"></div>
+    </main>
+    <footer>
+      Made with ❤️ by
+      <a href="https://lugvitc.github.io" target="_blank" rel="noreferrer"
+        >LUGVITC</a
+      >
+    </footer>
+  </body>
 </html>
