@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  background: #fff;
+  color: #000;
+}
+
+ul,
+ol {
+  display: flex;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+ul li,
+ol li {
+  display: flex;
+  flex-direction: column;
+}
+
+.response-list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+}
