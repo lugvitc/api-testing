@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API Testing | Linux Club, VIT Chennai</title>
-    <script defer src="index.js"></script>
+    <script defer src="script.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -35,50 +35,73 @@
 
         <button>Send</button>
 
+        <h3>Authorization</h3>
+        <li>
+          <label for="auth-type">Type</label>
+          <select id="auth-type">
+            <option value="none">None</option>
+            <option value="basic">Basic</option>
+            <option value="bearer">Bearer</option>
+            <option value="apikey">API Key</option>
+          </select>
+        </li>
+        <li>
+          <label for="auth-username">Username</label>
+          <input id="auth-username" />
+        </li>
+        <li>
+          <label for="auth-password">Password</label>
+          <input id="auth-password" />
+        </li>
+        <li>
+          <label for="auth-token">Token</label>
+          <input id="auth-token" />
+        </li>
+        <li>
+          <label for="auth-key">Key</label>
+          <input id="auth-key" />
+        </li>
+        <li>
+          <label for="auth-value">Value</label>
+          <input id="auth-value" />
+        </li>
+
         <h3>Parameters</h3>
         <table>
-          <thead>
-            <tr>
-              <th>Key</th>
-              <th>Value</th>
-            </tr>
-          </thead>
-          <tbody id="parameters">
-            <tr id="1">
-              <td><input type="text" id="parameter-name" /></td>
-              <td>
-                <input type="text" id="parameter-value" />&nbsp;<span
-                  class="cancel"
-                  >✖</span
-                >
-              </td>
-            </tr>
-          </tbody>
+          <tr>
+            <th>Key</th>
+            <th>Value</th>
+          </tr>
+          <tr>
+            <td><input type="text" id="parameter-key" /></td>
+            <td>
+              <input type="text" id="parameter-value" />
+            </td>
+            <td>
+              <button>Remove</button>
+            </td>
+          </tr>
         </table>
         <button id="add-parameter">Add parameter</button>
         <br />
+
         <h3>Headers</h3>
         <table>
-          <thead>
-            <tr id="1">
-              <th>Key</th>
-              <th>Value</th>
-            </tr>
-          </thead>
-          <tbody id="headers">
-            <tr id="1">
-              <td><input type="text" id="header-name" /></td>
-              <td>
-                <input type="text" id="header-value" />&nbsp;<span
-                  class="cancel"
-                  >✖</span
-                >
-              </td>
-            </tr>
-          </tbody>
+          <tr>
+            <th>Key</th>
+            <th>Value</th>
+          </tr>
+          <tr>
+            <td><input type="text" id="header-key" /></td>
+            <td>
+              <input type="text" id="header-value" />
+            </td>
+            <td>
+              <button>Remove</button>
+            </td>
+          </tr>
         </table>
         <button id="add-header">Add header</button>
-        <br />
         <br />
       </div>
 
